@@ -11,6 +11,12 @@ WORKDIR /app
 RUN useradd demo
 USER demo
 
+# EXPOSE 27017
 EXPOSE 8080
 
+# CMD ["--port 27017", "--smallfiles"]
+
 ENTRYPOINT ["bash", "/app/bin/run.sh"]
+# ENTRYPOINT ["./bin/run.sh"]
+# ENTRYPOINT ["gunicorn"]
+# CMD ["-w", "4", "-t", "100", "-b", "0.0.0.0:8080", "wsgi:app"]
